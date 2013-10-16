@@ -1,0 +1,101 @@
+body{
+	background-color: #b9cbcf;
+	font-family: 'Titillium Web', sans-serif;
+}
+
+img {
+	-webkit-border-radius: 30px; /* Saf3+, Chrome */
+	border-radius: 30px; /* Opera 10.5, IE 9 */
+	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}
+
+.row, .span12{
+	width: 1470px;
+	margin-left: 0px;
+}
+
+.span5 {
+width: 520px;
+}
+
+.span6{
+	width: 713px;
+}
+
+h1{
+	font-family: 'Arvo', 'Titillium Web', serif;
+	color: #474E4F;
+	text-align: center;
+	margin-top: 50px;
+	line-height: 35px;
+}
+
+h3,h4{
+	font-family: 'Titillium Web', serif;
+	color: #474E4F;
+	text-align: center;
+	font-style: italic;
+	line-height: 35px;
+}
+
+h5{
+	margin-top: -10px;
+	margin-bottom: 15px;
+}
+.good{
+	margin-top: 0px;
+	color: #27AE60;
+	margin-bottom: 25px;
+}
+
+.bad{
+	margin-top: 0px;
+	color: #C0392B;
+	margin-bottom: 25px;
+}
+
+.chart-bar{
+	width: 50%;
+	float: left;
+}
+.chart-bar span {
+	color: white;
+	font-style: normal;
+}
+
+#good-chart{
+	background-color: #27AE60;
+	height: 60px;
+}
+
+#bad-chart{
+	background-color: #C0392B;
+	height: 60px;
+}
+
+.span2{
+	text-align: center;
+}
+
+.span2 h4{
+	font-style: normal;
+	line-height: 18px;
+}
+
+ul{
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+li{
+  display: inline;
+}
+
+li img {
+	margin: 3px;
+	width: 30px;
+	height: 30px;
+	-webkit-border-radius: 30px; /* Saf3+, Chrome */
+	border-radius: 30px; /* Opera 10.5, IE 9 */
+	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}

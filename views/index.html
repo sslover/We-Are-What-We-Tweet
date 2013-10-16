@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>We Are What We Tweet</title>
+        <meta name="description" content="An exploration of the nutrition of real-time tweets">
+        <meta name="viewport" content="width=device-width">
+
+        <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+
+    </head>
+    <body>
+
+    <div class="row">
+      <div class="span12">       
+         <h1>We Are What We Tweet</h1>
+         <h3>Exploring the nutrition of real-time tweets</h3>
+         <h4>Based on <span id="tweetCount">0</span> tweets (and counting!)</h4>
+     </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+      <div class="chart-bar" id="good-chart">   
+        <h4><span id="goodData"></span></h4>    
+     </div>
+      <div class="chart-bar" id="bad-chart">   
+        <h4><span id="badData"></span></h4>        
+     </div>
+    </div>
+
+    <div class="row" style="margin-top: 50px;">
+
+      <div class="span6" style="border-right: 1px solid #8B999C;">       
+         <h1 class="good">Good Foods</h1>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/salad.jpg" width="100" height="100" >
+            <h4>Salad</h4>
+            <h5><span id="tweetCount-salad">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="salad">
+         </ul>
+         <!-- food -->
+         
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/broccoli.jpg" width="100" height="100" >
+            <h4>Broccoli</h4>
+            <h5><span id="tweetCount-broccoli">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="broccoli">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+         
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/salmon.jpg" width="100" height="100" >
+            <h4>Salmon</h4>
+            <h5><span id="tweetCount-salmon">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="salmon">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/spinach.jpg" width="100" height="100" >
+            <h4>Spinach</h4>
+            <h5><span id="tweetCount-spinach">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="spinach">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/vegetables.jpg" width="100" height="100" >
+            <h4>Vegetables</h4>
+            <h5><span id="tweetCount-vegetables">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="vegetables">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/tofu.jpg" width="100" height="100" >
+            <h4>Tofu</h4>
+            <h5><span id="tweetCount-tofu">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="tofu">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/avocado.jpg" width="100" height="100" >
+            <h4>Avocado</h4>
+            <h5><span id="tweetCount-avocado">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="avocado">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/sweet-potatoes.jpg" width="100" height="100" >
+            <h4>Sweet Potatoes</h4>
+            <h5><span id="tweetCount-sweet-potatoes">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="sweet-potatoes">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/berries.jpg" width="100" height="100" >
+            <h4>Berries</h4>
+            <h5><span id="tweetCount-berries">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="berries">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/dark-chocolate.jpg" width="100" height="100" >
+            <h4>Dark Chocolate</h4>
+            <h5><span id="tweetCount-dark-chocolate">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="dark-chocolate">
+         </ul>
+         <!-- food -->
+         <div style='clear:both'></div>
+
+     </div>
+
+      <div class="span6" style="margin-left: 0px;">       
+         <h1 class="bad">Bad Foods</h1>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/pizza.jpg" width="100" height="100" >
+            <h4>Pizza</h4>
+            <h5><span id="tweetCount-pizza">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="pizza">
+         </ul>
+         <!-- food -->
+         
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/ice-cream.jpg" width="100" height="100" >
+            <h4>Ice Cream</h4>
+            <h5><span id="tweetCount-ice-cream">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="ice-cream">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/candy.jpg" width="100" height="100" >
+            <h4>Candy</h4>
+            <h5><span id="tweetCount-candy">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="candy">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/french-fries.jpg" width="100" height="100" >
+            <h4>French Fries</h4>
+            <h5><span id="tweetCount-french-fries">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="french-fries">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/fried-chicken.jpg" width="100" height="100" >
+            <h4>Fried Chicken</h4>
+            <h5><span id="tweetCount-fried-chicken">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="fried-chicken">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/hot-dog.jpg" width="100" height="100" >
+            <h4>Hot Dog</h4>
+            <h5><span id="tweetCount-hot-dog">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="hot-dog">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/bbq.jpg" width="100" height="100" >
+            <h4>BBQ</h4>
+            <h5><span id="tweetCount-bbq">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="bbq">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/soda.jpg" width="100" height="100" >
+            <h4>Soda</h4>
+            <h5><span id="tweetCount-soda">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="soda">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/hamburger.jpg" width="100" height="100" >
+            <h4>Hamburger</h4>
+            <h5><span id="tweetCount-hamburgers">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="hamburger">
+         </ul>
+         <!-- food -->
+         <div style='clear:both'></div>
+
+         <!-- food -->
+         <div class="span2">
+            <img src="/img/cinnamon-roll.jpg" width="100" height="100" >
+            <h4>Cinnamon Roll</h4>
+            <h5><span id="tweetCount-cinnamon-roll">0</span> tweets</h5>
+         </div>
+         <ul class="span5" id="cinnamon-roll">
+         </ul>
+         <!-- food -->
+
+         <div style='clear:both'></div>
+
+     </div>
+    
+    </div>
+
+    </body>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <script src="/components/socket.io-client/dist/socket.io.min.js"></script>
+        <script src="/javascripts/vendor/bootstrap.min.js"></script>
+        <script src="/javascripts/script.js"></script>
+
+</html>
