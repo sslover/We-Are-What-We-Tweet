@@ -9,12 +9,15 @@ var express = require('express')
   , _ = require('underscore')
   , path = require('path');
 
+// create a file system to write to the json file
+var fs = require('fs');
+var tweetJSON = [];
+
 //Create an express app
 var app = express();
 
 //Create the HTTP server with the express app as an argument
 var server = http.createServer(app);
-
 
 // Twitter foods array. We want a list for allFoods, and then we will check that list against the healthy and unhealthy foods list
 var allFoods = ['salad', 'salmon', 'tofu', 'vegetables', 'avocado', 'broccoli', 'spinach', 'sweet potatoes', 'berries', 'dark chocolate', 'hamburger', 'pizza', 'french fries', 'fried chicken', 'hot dog', 'cinnamon roll', 'ice cream', 'soda', 'bbq', 'candy'];
@@ -137,7 +140,6 @@ t.stream('statuses/filter', { track: allFoods}, function(stream) {
       //the 'total' counter!
       _.each(healthyFoods, function(v) {
           if (text.indexOf(v.toLowerCase()) !== -1 && ateIt) {
-                    console.log("!!!!they ate it healthy!!!!" + text);
                     healthyList.foods[v]++;
                     healthyClaimed = true;
                     dataObject.tweet.push(tweet.text);
@@ -150,9 +152,7 @@ t.stream('statuses/filter', { track: allFoods}, function(stream) {
 
       _.each(unhealthyFoods, function(v) {
           if (text.indexOf(v.toLowerCase()) !== -1 && ateIt) {
-                    console.log("!!!!they ate it unhealthy!!!!" + text);
                     unhealthyList.foods[v]++;
-                    console.log(v);
                     unhealthyClaimed = true;
                     dataObject.tweet.push(tweet.text);
                     dataObject.tweet.push(tweet.user.profile_image_url);
@@ -165,6 +165,8 @@ t.stream('statuses/filter', { track: allFoods}, function(stream) {
 
       //If something was mentioned, increment the total counter and send the update to all the clients
       if (healthyClaimed) {
+          //send tweet to master json
+          //writeFile(tweet);
           //Increment total
           healthyList.total++;
           //Send to all the clients
@@ -173,6 +175,8 @@ t.stream('statuses/filter', { track: allFoods}, function(stream) {
       }
 
       if (unhealthyClaimed) {
+          //send tweet to master json
+          //writeFile(tweet);
           //Increment total
           unhealthyList.total++;
           //Send to all the clients
@@ -184,20 +188,35 @@ t.stream('statuses/filter', { track: allFoods}, function(stream) {
   });
 });
 
-// //Reset everything on a new day!
-// new cronJob('0 0 0 * * *', function(){
-//     //Reset the total
-//     healthyList.total = 0;
-//     unhealthyList.total = 0;
+function writeFile(tweet){
 
-//     //Clear out everything in the map
-//     _.each(healthyFoods, function(v) { healthyList.foods[v] = 0; });
-//     _.each(unhealthyFoods, function(v) { unhealthyList.foods[v] = 0; });
+  var newJSON = JSON.stringify(tweet);
+  tweetJSON.push(newJSON);
+  console.log(tweetJSON.length);
+  fs.writeFile('tweets.json', tweetJSON, function(err) {
+      if(err) {
+          console.log(err);
+      } else {
+          console.log("The file was saved!");
+      }
+  }); 
 
-//     //Send the update to the clients
-//     socket.emit('data', dataObject);
+}
 
-// }, null, true);
+//Reset everything on a new day!
+new cronJob('0 0 0 * * *', function(){
+    //Reset the total
+    healthyList.total = 0;
+    unhealthyList.total = 0;
+
+    //Clear out everything in the map
+    _.each(healthyFoods, function(v) { healthyList.foods[v] = 0; });
+    _.each(unhealthyFoods, function(v) { unhealthyList.foods[v] = 0; });
+
+    //Send the update to the clients
+    socket.emit('data', dataObject);
+
+}, null, true);
 
 //Create the server
 server.listen(app.get('port'), function(){
