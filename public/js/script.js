@@ -73,7 +73,11 @@ $(function() {
     $("#tweetCount").text(totalTweets);
 
     var healthyWidth = Math.round((healthTotal / totalTweets) * 100);
-    var unhealthyWidth = Math.floor((unhealthTotal / totalTweets) * 100);        
+    var unhealthyWidth = Math.round((unhealthTotal / totalTweets) * 100);        
+
+    if((healthyWidth + unhealthyWidth) > 100){
+        unhealthyWidth = Math.floor((unhealthTotal / totalTweets) * 100);
+    }        
 
     $("#good-chart").css("width", healthyWidth +"%");
     $("#bad-chart").css("width", unhealthyWidth +"%");

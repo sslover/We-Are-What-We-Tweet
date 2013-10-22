@@ -105,10 +105,10 @@ sockets.sockets.on('connection', function(socket) {
 //Set up the twitter component
 
 var t = new twitter({
-      consumer_key: 'HERLR3SfVGutshK5Nkew', 
-      consumer_secret: 'bTRnn8EFxCMC1k8mPzGyJzceC1wlBawlJv7sZ0jQHE',
-      access_token_key: '81014526-0wOYZQPGHbUyJPzPGDv9jI5ZKzWY4BVfaR9I4rBqw',
-      access_token_secret: 'FDq4Iokv3qiuBiw1lfEQwnV5VwwnrABOhHnXjN1BSAU'
+        consumer_key: process.env.consumer_key, 
+        consumer_secret: process.env.consumer_secret,
+        access_token_key: process.env.access_token_key,
+        access_token_secret: process.env.access_token_secret
 });
 
 //Tell the twitter API to filter on the allFoods, and then we will see if the foods are in our healthy or unhealthy list
